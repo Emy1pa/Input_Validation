@@ -1,8 +1,34 @@
 #include <iostream>
+#include "clsInputValidate.h"
+
 using namespace std;
 
 int main()
 {
-    cout << "Hello World!\n";
+    cout << clsInputValidate::IsNumberBetween(5, 1, 10) << endl;
+    cout << clsInputValidate::IsNumberBetween(5.5, 1.3, 10.8) << endl;
+
+    cout << clsInputValidate::IsDateBetween(clsDate(), clsDate(20, 9, 2025), clsDate(31, 9, 2025)) << endl;
+    cout << clsInputValidate::IsDateBetween(clsDate(), clsDate(31, 9, 2025), clsDate(20, 9, 2025)) << endl;
+
+
+    cout << "\nPlease Enter a Number: \n";
+    int x = clsInputValidate::ReadIntNumber("Invalid Number, Enter again: \n");
+    cout << "x= " << x;
+
+    cout << "\n\nPlease Enter a Double Number: \n";
+    double a = clsInputValidate::ReadDblNumber("Invalid Number, Enter again: \n");
+    cout << "a= " << a;
+
+    cout << "\n\nPlease Enter a Number between 1 and 5: \n";
+    int y = clsInputValidate::ReadIntNumberBetween(1, 5, "Number is not withing range, please enter again\n");
+    cout << "y= " << y;
+
+    cout << "\n\nPlease Enter a Double Number between 1 and 5: \n";
+    double b = clsInputValidate::ReadDblNumberBetween(1, 5, "Number is not withing range, please enter again\n");
+    cout << "b= " << b;
+
+    cout << endl <<  endl << clsInputValidate::IsValidateDate(clsDate(35, 12, 2022)) << endl;
+    return 0;
 }
 
